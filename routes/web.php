@@ -69,19 +69,24 @@ Route::get("paises", function(){
                      "Moneda" =>  "Guarani",
                      "poblacion" => 7
                     ] ];
-    foreach($paises as $nombre => $pais){
-        echo "<pre>";
-        echo "<h1>$nombre</h1>";
-        print_r($pais["capital"] ."<br  />" );
-        print_r($pais["nombre"] ."<br  />");
-        print_r($pais["moneda"] ."<br  />");
-        echo "</pre>";
-        echo "<hr />";
+   /* $suma= 0;
+    foreach($paises as $nombre => $pais):
+    $suma += $pais["poblacion"];
+    endforeach;*/
 
+    //echo  "La suma de los paises es: $suma";
 
-    }
+    //LLamar a una vista
+    //con dtos de paises
+        //se reconocen los datos
+    return view('paises')->with("naciones" , $paises);
 
 
 
 
 });
+
+Route::get('formulario_buscador','MetabuscadorController@formulario_buscador');
+
+    Route::post('buscar', 'MetabuscadorController@buscar');
+
